@@ -1,0 +1,212 @@
+{% extends '_base.html' %}
+<!--static-->
+{% load static %}
+<!--Content-->
+{% block content %}
+<main>
+  <section class="user">
+    <div class="user-card">
+      <div class="card-head">
+        <img src="{{ person.picture }}" alt="" class="card-img" />
+
+        <div class="card-overlay">
+          <div class="bookmark">
+            <ion-icon name="bookmark-outline"></ion-icon>
+          </div>
+
+          <div class="rating">
+            <ion-icon name="star-outline"></ion-icon>
+            <span>{{recom}}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <h3 class="card-title">{{person.name}}</h3>
+        <div class="tags">
+          {% if person.professional_headline %}
+          <div class="tag accordion">{{person.professional_headline}}</div>
+          {% endif %}
+          <!---->
+          {% if person.bio %}
+          <div class="panel">
+            <p>{{person.bio}}</p>
+          </div>
+          {% endif %}
+          <!--Recommendations-->
+          {% if recom %}
+          <p class="mt-1 tag">
+            Recommendations <span class="value">{{recom}}</span>
+          </p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="skill-info">
+      <h2 class="subheading">Skills and Interest:</h2>
+      <div class="proficiency-level">
+        {% if person_skills.master %}
+        <article class="level-item">
+          <h3 class="heading">
+            <ion-icon name="airplane-outline"></ion-icon>Master/Influencer
+          </h3>
+          <div class="tags">
+            {% for skill in person_skills.master %}
+            <div class="tag accordion">
+              {{skill.name}}
+              <span class="value">{{skill.recommendations}}</span>
+            </div>
+            <div class="panel">
+              <div class="tags">
+                <p class="tag">
+                  Name
+                  <span class="value">{{skill.name}}</span>
+                </p>
+                <p class="tag">
+                  Proficiency
+                  <span class="value">{{skill.proficiency}}</span>
+                </p>
+                <p class="tag">
+                  Recommendations
+                  <span class="value">{{skill.recommendations}}</span>
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </article>
+        {% endif %}
+        <!--Expert-->
+        {% if person_skills.expert %}
+        <article class="level-item">
+          <h3 class="heading">
+            <ion-icon name="telescope-outline"></ion-icon>Expert
+          </h3>
+          <div class="tags">
+            {% for skill in person_skills.expert %}
+            <div class="tag accordion">
+              {{skill.name}}
+              <span class="value">{{skill.recommendations}}</span>
+            </div>
+            <div class="panel">
+              <div class="tags">
+                <p class="tag">
+                  Name
+                  <span class="value">{{skill.name}}</span>
+                </p>
+                <p class="tag">
+                  Proficiency
+                  <span class="value">{{skill.proficiency}}</span>
+                </p>
+                <p class="tag">
+                  Recommendations
+                  <span class="value">{{skill.recommendations}}</span>
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </article>
+        {% endif %}
+        <!--Proficient-->
+        {% if person_skills.proficient %}
+        <article class="level-item">
+          <h3 class="heading">
+            <ion-icon name="bicycle-outline"></ion-icon>Proficient
+          </h3>
+          <div class="tags">
+            {% for skill in person_skills.proficient %}
+            <div class="tag accordion">
+              {{skill.name}}
+              <span class="value">{{skill.recommendations}}</span>
+            </div>
+            <div class="panel">
+              <div class="tags">
+                <p class="tag">
+                  Name
+                  <span class="value">{{skill.name}}</span>
+                </p>
+                <p class="tag">
+                  Proficiency
+                  <span class="value">{{skill.proficiency}}</span>
+                </p>
+                <p class="tag">
+                  Recommendations
+                  <span class="value">{{skill.recommendations}}</span>
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </article>
+        {% endif %}
+        <!--Novice-->
+        {% if person_skills.novice %}
+        <article class="level-item">
+          <h3 class="heading">
+            <ion-icon name="walk-outline"></ion-icon>Novice
+          </h3>
+          <div class="tags">
+            {% for skill in person_skills.novice %}
+            <div class="tag accordion">
+              {{skill.name}}
+              <span class="value">{{skill.recommendations}}</span>
+            </div>
+            <div class="panel">
+              <div class="tags">
+                <p class="tag">
+                  Name
+                  <span class="value">{{skill.name}}</span>
+                </p>
+                <p class="tag">
+                  Proficiency
+                  <span class="value">{{skill.proficiency}}</span>
+                </p>
+                <p class="tag">
+                  Recommendations
+                  <span class="value">{{skill.recommendations}}</span>
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </article>
+        {% endif %}
+        <!--No Experience-->
+        {% if person_skills.noexperienceinterested %}
+        <article class="level-item">
+          <h3 class="heading">
+            <ion-icon name="bug-outline"></ion-icon>No experience, but
+            interested
+          </h3>
+          <div class="tags">
+            {% for skill in person_skills.noexperienceinterested %}
+            <div class="tag accordion">
+              {{skill.name}}
+              <span class="value">{{skill.recommendations}}</span>
+            </div>
+            <div class="panel">
+              <div class="tags">
+                <p class="tag">
+                  Name
+                  <span class="value">{{skill.name}}</span>
+                </p>
+                <p class="tag">
+                  Proficiency
+                  <span class="value">{{skill.proficiency}}</span>
+                </p>
+                <p class="tag">
+                  Recommendations
+                  <span class="value">{{skill.recommendations}}</span>
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </article>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock content %}
