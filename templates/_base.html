@@ -11,7 +11,9 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="{% static 'css/style.min.css' %}" />
-    <title>Torre.co Technical Interview</title>
+    <title>
+      {% block title %}{% endblock title %} Torre.co Technical Interview
+    </title>
   </head>
   <body>
     <div class="container">

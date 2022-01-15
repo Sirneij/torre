@@ -1,4 +1,10 @@
 {% extends '_base.html' %}
+<!--title-->
+{% if person %}
+<!---->
+{% block title %}{{person.name}} | {% endblock title %}
+<!---->
+{% endif %}
 <!--static-->
 {% load static %}
 <!--Content-->
