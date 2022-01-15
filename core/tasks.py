@@ -18,9 +18,15 @@ def get_person_and_save(username: str):
         skills_list = []
         if p["strengths"]:
             for skill in p["strengths"]:
-                skills_list.append({"id": skill.get("id"), "name": skill.get('name'), "proficiency": skill.get('proficiency'),'recommendations': skill.get('recommendations')})
-        person.skills = skills_list  
+                skills_list.append(
+                    {
+                        "id": skill.get("id"),
+                        "name": skill.get('name'),
+                        "proficiency": skill.get('proficiency'),
+                        'recommendations': skill.get('recommendations'),
+                    }
+                )
+        person.skills = skills_list
         person.save()
 
         return person.id
-    

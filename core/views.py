@@ -1,5 +1,5 @@
-from django.shortcuts import render
 from django.http import JsonResponse
+from django.shortcuts import render
 
 from .models import Person
 from .tasks import get_person_and_save
@@ -18,11 +18,11 @@ def index(request):
     person_skills = {}
     if person:
         if person.skills:
-            recom = sum([p['recommendations'] for p in person.skills ])
-        
+            recom = sum([p['recommendations'] for p in person.skills])
+
         for skill in person.skills:
             if skill:
-                person_skills.setdefault(skill['proficiency'].replace('-',''), []).append(skill)
+                person_skills.setdefault(skill['proficiency'].replace('-', ''), []).append(skill)
         list(person_skills.values())
     context: dict = {
         "person": person,

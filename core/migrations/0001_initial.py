@@ -7,8 +7,7 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
@@ -16,7 +15,10 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.CharField(editable=False, max_length=30, primary_key=True, serialize=False)),
                 ('name', models.CharField(max_length=300, verbose_name="Person's name")),
-                ('professional_headline', models.CharField(blank=True, max_length=300, verbose_name='Professional Headline')),
+                (
+                    'professional_headline',
+                    models.CharField(blank=True, max_length=300, verbose_name='Professional Headline'),
+                ),
                 ('picture', models.URLField(blank=True, max_length=2000, verbose_name='Link to picture')),
                 ('bio', models.TextField(blank=True, verbose_name='Biographical summary')),
                 ('username', models.CharField(blank=True, max_length=50, verbose_name='Username')),
